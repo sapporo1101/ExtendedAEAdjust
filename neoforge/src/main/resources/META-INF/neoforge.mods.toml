@@ -27,6 +27,16 @@ versionRange = "[1.21.1,)"
 ordering = "NONE"
 side = "BOTH"
 
+[[dependencies.extendedaeadjust]]
+modId = "extendedae"
+type = "required"
+versionRange = "[1.21-2.2.1-neoforge,)"
+ordering = "NONE"
+side = "BOTH"
+
 
 [[mixins]]
 config = "extendedaeadjust.mixins.json"
+
+[[mixins]]
+config = "neoforge.extendedaeadjust.mixins.json"

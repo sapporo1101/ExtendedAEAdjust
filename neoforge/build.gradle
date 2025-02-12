@@ -24,15 +24,26 @@ configurations {
     }
 }
 
+loom {
+    accessWidenerPath = file("src/main/resources/extendedaeadjust.accesswidener")
+}
+
 repositories {
     maven {
         name = 'NeoForged'
         url = 'https://maven.neoforged.net/releases'
     }
+    maven {
+        url "https://cursemaven.com"
+    }
 }
 
 dependencies {
     neoForge "net.neoforged:neoforge:$rootProject.neoforge_version"
+
+    modImplementation "curse.maven:ex-pattern-provider-892005:6164133"
+    modImplementation "curse.maven:applied-energistics-2-223794:6140781"
+    modImplementation "curse.maven:glodium-957920:5821676"
 
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive false }
@@ -54,4 +65,5 @@ shadowJar {
 
 remapJar {
     input.set shadowJar.archiveFile
+    atAccessWideners.add("extendedaeadjust.accesswidener")
 }
