@@ -1,0 +1,33 @@
+{
+    "schemaVersion": 1,
+    "id": "extendedaeadjust",
+    "version": "${version}",
+    "name": "ExtendedAEAdjust",
+    "description": "",
+    "authors": ["sapporo1101"],
+    "contact": {
+        "homepage": ""
+    },
+    "license": "All-Rights-Reserved",
+    "icon": "assets/extendedaeadjust/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "io.github.sapporo1101.extendedaeadjust.fabric.ExtendedaeadjustFabric"
+        ],
+        "client": [
+            "io.github.sapporo1101.extendedaeadjust.fabric.client.ExtendedaeadjustFabricClient"
+        ]
+    },
+    "mixins": [
+        "extendedaeadjust.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.16.10",
+        "minecraft": "~1.21.1",
+        "java": ">=21"
+    },
+    "suggests": {
+        "another-mod": "*"
+    }
+}

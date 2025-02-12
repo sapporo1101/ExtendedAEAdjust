@@ -1,0 +1,32 @@
+modLoader = "javafml"
+loaderVersion = "[2,)"
+#issueTrackerURL = ""
+license = "All Rights Reserved"
+
+[[mods]]
+modId = "extendedaeadjust"
+version = "${version}"
+displayName = "ExtendedAEAdjust"
+authors = "sapporo1101"
+description = '''
+
+'''
+#logoFile = ""
+
+[[dependencies.extendedaeadjust]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.extendedaeadjust]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+
+[[mixins]]
+config = "extendedaeadjust.mixins.json"
