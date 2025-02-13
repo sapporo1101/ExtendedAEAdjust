@@ -11,10 +11,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class RegistryHandlerMixin {
     @Inject(method = "block(Ljava/lang/String;Lnet/minecraft/world/level/block/Block;)V", at = @At("HEAD"), cancellable = true)
     private void block(String name, Block block, CallbackInfo ci) {
-        System.out.println("RegistryHandlerMixin.block");
-        if (name.equals("mddyue") || name.equals("fishbig")) {
-            System.out.println("RegistryHandlerMixin.block cancel");
-            ci.cancel();
-        }
+        if (name.equals("mddyue") || name.equals("fishbig")) ci.cancel();
     }
 }

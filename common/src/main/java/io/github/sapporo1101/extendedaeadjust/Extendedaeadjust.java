@@ -2,6 +2,9 @@ package io.github.sapporo1101.extendedaeadjust;
 
 import com.google.gson.JsonParser;
 import io.github.sapporo1101.extendedaeadjust.resource.ResourceModifier;
+import net.minecraft.resources.ResourceLocation;
+
+import java.util.List;
 
 public final class Extendedaeadjust {
     public static final String MOD_ID = "extendedaeadjust";
@@ -22,5 +25,20 @@ public final class Extendedaeadjust {
             json.getAsJsonObject("key").getAsJsonObject("X").addProperty("item", "ae2:cell_component_256k");
             return json.toString().getBytes();
         });
+
+        ResourceModifier.registerStartsWithModifier("assets/extendedae/textures/block/", (path, data) -> {
+            try (var modifiedData = Extendedaeadjust.class.getClassLoader().getResourceAsStream(path.replaceFirst("^assets/extendedae/", "assets/extendedaeadjust/"))) {
+                if (modifiedData == null) return null;
+                return modifiedData.readAllBytes();
+            }
+        });
     }
+
+    public static final List<ResourceLocation> MCMETAS = List.of(
+            ResourceLocation.fromNamespaceAndPath("extendedae", "textures/block/assembler_matrix/frame_block_on.png"),
+            ResourceLocation.fromNamespaceAndPath("extendedae", "textures/block/assembler_matrix/frame_column_on.png"),
+            ResourceLocation.fromNamespaceAndPath("extendedae", "textures/block/assembler_matrix/crafter_core.png"),
+            ResourceLocation.fromNamespaceAndPath("extendedae", "textures/block/assembler_matrix/pattern_core.png"),
+            ResourceLocation.fromNamespaceAndPath("extendedae", "textures/block/assembler_matrix/speed_core.png")
+    );
 }

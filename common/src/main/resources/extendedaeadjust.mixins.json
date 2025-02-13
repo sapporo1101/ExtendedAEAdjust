@@ -5,9 +5,7 @@
     "minVersion": "0.8",
     "client": [
     ],
-    "mixins": [
-        "InputSupplierMixin"
-    ],
+    "mixins": ["FallbackResourceManagerMixin", "InputSupplierMixin"],
     "injectors": {
         "defaultRequire": 1
     }
