@@ -1,6 +1,7 @@
 package io.github.sapporo1101.extendedaeadjust;
 
 import com.google.gson.JsonParser;
+import com.google.gson.JsonPrimitive;
 import io.github.sapporo1101.extendedaeadjust.resource.ResourceModifier;
 import net.minecraft.resources.ResourceLocation;
 
@@ -14,6 +15,14 @@ public final class Extendedaeadjust {
     }
 
     public static void registerModifiers() {
+        ResourceModifier.registerQuickModifier("data/minecraft/tags/block/mineable/pickaxe.json", data -> {
+            var json = JsonParser.parseString(new String(data)).getAsJsonObject();
+            var values = json.getAsJsonArray("values");
+            values.remove(new JsonPrimitive("extendedae:fishbig"));
+            values.remove(new JsonPrimitive("extendedae:mddyue"));
+            return json.toString().getBytes();
+        });
+
         ResourceModifier.registerQuickModifier("data/extendedae/recipe/cobblestone_cell.json", data -> {
             var json = JsonParser.parseString(new String(data)).getAsJsonObject();
             json.getAsJsonObject("key").getAsJsonObject("X").addProperty("item", "ae2:cell_component_256k");
