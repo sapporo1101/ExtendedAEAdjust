@@ -35,7 +35,7 @@ public final class Extendedaeadjust {
             return json.toString().getBytes();
         });
 
-        ResourceModifier.registerStartsWithModifier("assets/extendedae/textures/block/", (path, data) -> {
+        ResourceModifier.registerStartsWithModifier("assets/extendedae/textures/", (path, data) -> {
             try (var modifiedData = Extendedaeadjust.class.getClassLoader().getResourceAsStream(path.replaceFirst("^assets/extendedae/", "assets/extendedaeadjust/"))) {
                 if (modifiedData == null) return null;
                 return modifiedData.readAllBytes();
