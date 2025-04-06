@@ -35,12 +35,14 @@ public final class Extendedaeadjust {
             return json.toString().getBytes();
         });
 
-        ResourceModifier.registerStartsWithModifier("assets/extendedae/textures/", (path, data) -> {
-            try (var modifiedData = Extendedaeadjust.class.getClassLoader().getResourceAsStream(path.replaceFirst("^assets/extendedae/", "assets/extendedaeadjust/"))) {
-                if (modifiedData == null) return null;
-                return modifiedData.readAllBytes();
-            }
-        });
+        for (var modid : List.of("extendedae", "ae2", "ae2netanalyser", "megacells")) {
+            ResourceModifier.registerStartsWithModifier("assets/" + modid + "/textures/", (path, data) -> {
+                try (var modifiedData = Extendedaeadjust.class.getClassLoader().getResourceAsStream(path.replaceFirst("^assets/" + modid + "/", "assets/extendedaeadjust/" + modid + "/"))) {
+                    if (modifiedData == null) return null;
+                    return modifiedData.readAllBytes();
+                }
+            });
+        }
     }
 
     public static final List<ResourceLocation> MCMETAS = List.of(
