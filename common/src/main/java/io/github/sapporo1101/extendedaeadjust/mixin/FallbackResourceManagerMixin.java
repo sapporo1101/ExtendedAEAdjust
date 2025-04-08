@@ -35,7 +35,7 @@ public abstract class FallbackResourceManagerMixin {
                 packResourcesMethod.setAccessible(true);
                 var packResources = packResourcesMethod.invoke(resource);
 
-                IoSupplier<InputStream> ioSupplier = () -> Objects.requireNonNull(Extendedaeadjust.class.getClassLoader().getResourceAsStream("assets/extendedaeadjust/" + resourceLocation.getPath() + ".mcmeta"));
+                IoSupplier<InputStream> ioSupplier = () -> Objects.requireNonNull(Extendedaeadjust.class.getClassLoader().getResourceAsStream("assets/extendedaeadjust/" + resourceLocation.getNamespace() + "/" + resourceLocation.getPath() + ".mcmeta"));
 
                 var packIndexMethod = resourceWithSourceAndIndexClass.getDeclaredMethod("packIndex");
                 packIndexMethod.setAccessible(true);
